@@ -1,3 +1,0 @@
-from yapc import expect
-
-
