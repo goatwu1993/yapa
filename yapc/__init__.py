@@ -1,9 +1,10 @@
 from typing import Union, overload
-from yapc.impl.assertions import StringAssertion, DictAssertion
+from yapc.impl.assertions import StrAssertion, DictAssertion
+from yapc.flags import StrFlags
 
 
 @overload
-def expect(actual: str) -> StringAssertion:
+def expect(actual: str) -> StrAssertion:
     ...
 
 
@@ -14,11 +15,12 @@ def expect(actual: dict) -> DictAssertion:
 
 def expect(
     actual: Union[str, dict],
-) -> StringAssertion:
+) -> Union[StrAssertion, DictAssertion]:
     if isinstance(actual, str):
-        return StringAssertion(StringAssertionsImpl(actual._impl_obj))
+        return StrAssertion(actual=actual, flag_class=StrFlags)
     if isinstance(actual, str):
-        return DictAssertion(StringAssertionsImpl(actual._impl_obj))
+        # TODO
+        raise NotImplementedError
     raise ValueError(f"Unsupported type: {type(actual)}")
 
 
