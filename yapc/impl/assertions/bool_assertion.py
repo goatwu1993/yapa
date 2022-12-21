@@ -7,6 +7,6 @@ class BoolAssertion(BaseAssertion):
         assert self.actual is self.flags.tobe
         return self
 
-    def equal(self, dest: Any) -> "BoolAssertion":
+    def eql(self, dest: Any) -> "BoolAssertion":
         assert (self.actual == dest) == self.flags.tobe
         return self

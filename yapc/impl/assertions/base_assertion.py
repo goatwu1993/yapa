@@ -41,7 +41,7 @@ class BaseAssertion(ABC):
         ...
 
     @abstractmethod
-    def equal(self):
+    def eql(self):
         ...
 
     def a(self, dest_class: Type):

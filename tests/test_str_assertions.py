@@ -15,6 +15,8 @@ def test_assertions_str():
     expect("foobar")._not.to.be.a(bool)
     expect("foobar")._not.to.be.empty()
     expect("").to.be.empty()
+    expect("foobar").to.be.eql("foobar")
+    expect("foobar")._not.to.be.eql("foo")
 
 
 def test_assertions_str_and():

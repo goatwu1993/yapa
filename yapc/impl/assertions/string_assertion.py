@@ -25,6 +25,6 @@ class StrAssertion(BaseAssertion):
         assert self.actual if self.flags.tobe else not self.actual
         return self
 
-    def equal(self, dest: Any) -> "StrAssertion":
-        assert (self.actual == dest) == self.actual
+    def eql(self, dest: Any) -> "StrAssertion":
+        assert (self.actual == dest) == self.flags.tobe
         return self
