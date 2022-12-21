@@ -8,8 +8,7 @@ class StrAssertion(BaseAssertion):
     def __init__(self, actual: str, flag_class: Type[StrFlags]):
         return super().__init__(actual, flag_class)
 
-    def __call__(self, dest: str) -> "StrAssertion":
-
+    def __call__(self, dest: str):
         if self.flags.have:
             assert (dest in self.actual) is self.flags.tobe
             return self
@@ -21,7 +20,3 @@ class StrAssertion(BaseAssertion):
 
     def str(self, dest: str) -> "StrAssertion":
         return self(dest=dest)
-
-    def a(self, dest_class: Type) -> "StrAssertion":
-        assert isinstance(self.actual, dest_class) == self.flag_class.tobe
-        return self

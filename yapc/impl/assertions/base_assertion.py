@@ -37,3 +37,10 @@ class BaseAssertion:
 
     def __call__(self, *args, **kwargs):
         ...
+
+    def a(self, dest_class: Type):
+        assert isinstance(self.actual, dest_class) == self.flag_class.tobe
+        return self
+
+    def an(self, dest_class: Type):
+        return self.a(dest_class=dest_class)
