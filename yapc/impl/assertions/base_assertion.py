@@ -1,6 +1,6 @@
 from typing import Type, Any
 from yapc.flags import BaseFlags
-from abc import ABC, abstractmethod, abstractproperty
+from abc import ABC, abstractmethod
 
 
 class BaseAssertion(ABC):
@@ -40,8 +40,12 @@ class BaseAssertion(ABC):
     def ok(self):
         ...
 
+    @abstractmethod
+    def equal(self):
+        ...
+
     def a(self, dest_class: Type):
-        assert isinstance(self.actual, dest_class) == self.flag_class.tobe
+        assert isinstance(self.actual, dest_class) == self.flags.tobe
         return self
 
     def an(self, dest_class: Type):

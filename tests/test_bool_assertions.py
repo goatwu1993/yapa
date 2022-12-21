@@ -12,3 +12,7 @@ def test_bool_ok():
     expect(False).to.be.a(bool)
     expect(True)._not.to.be.a(str)
     expect(False)._not.to.be.a(str)
+    expect(True).to.equal(True)
+    expect(False).to.equal(False)
+    expect(True)._not.to.equal(False)
+    expect(False)._not.to.equal(True)

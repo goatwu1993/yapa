@@ -1,4 +1,4 @@
-from typing import Type
+from typing import Type, Any
 
 from .base_assertion import BaseAssertion
 from yapc.flags import StrFlags
@@ -23,4 +23,8 @@ class StrAssertion(BaseAssertion):
 
     def ok(self) -> "StrAssertion":
         assert self.actual if self.flags.tobe else not self.actual
+        return self
+
+    def equal(self, dest: Any) -> "StrAssertion":
+        assert (self.actual == dest) == self.actual
         return self

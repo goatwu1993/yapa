@@ -11,6 +11,8 @@ def test_assertions_str():
     # tohave string
     expect("foobar").to.have.str("bar")
     expect("foo")._not.to.have.str("bar")
+    expect("foobar").to.be.a(str)
+    expect("foobar")._not.to.be.a(bool)
 
 
 def test_assertions_str_and():
