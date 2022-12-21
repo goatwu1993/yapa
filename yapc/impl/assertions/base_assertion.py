@@ -58,3 +58,7 @@ class BaseAssertion(ABC):
     def false(self):
         self.flags.tobe = False
         return self.true
+
+    def empty(self):
+        assert (len(self.actual) == 0) == self.flags.tobe
+        return self

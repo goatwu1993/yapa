@@ -13,6 +13,8 @@ def test_assertions_str():
     expect("foo")._not.to.have.str("bar")
     expect("foobar").to.be.a(str)
     expect("foobar")._not.to.be.a(bool)
+    expect("foobar")._not.to.be.empty()
+    expect("").to.be.empty()
 
 
 def test_assertions_str_and():
