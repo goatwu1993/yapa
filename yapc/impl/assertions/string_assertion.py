@@ -6,10 +6,10 @@ from yapc.flags import StrFlags
 
 class StrAssertion(BaseAssertion):
     def __init__(self, actual: str, flag_class: Type[StrFlags]):
-        self._actual = actual
-        self.flags = flag_class()
+        return super().__init__(actual, flag_class)
 
-    def str(self, dest: str) -> "StrAssertion":
+    def __call__(self, dest: str) -> "StrAssertion":
+
         if self.flags.have:
             assert (dest in self.actual) is self.flags.tobe
             return self
@@ -17,4 +17,11 @@ class StrAssertion(BaseAssertion):
         return self
 
     def string(self, dest: str) -> "StrAssertion":
-        return self.str(dest=dest)
+        return self(dest=dest)
+
+    def str(self, dest: str) -> "StrAssertion":
+        return self(dest=dest)
+
+    def a(self, dest_class: Type) -> "StrAssertion":
+        assert isinstance(self.actual, dest_class) == self.flag_class.tobe
+        return self

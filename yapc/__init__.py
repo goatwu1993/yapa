@@ -18,10 +18,7 @@ def expect(
 ) -> Union[StrAssertion, DictAssertion]:
     if isinstance(actual, str):
         return StrAssertion(actual=actual, flag_class=StrFlags)
-    if isinstance(actual, str):
-        # TODO
-        raise NotImplementedError
-    raise ValueError(f"Unsupported type: {type(actual)}")
+    raise NotImplementedError
 
 
 __all__ = [
