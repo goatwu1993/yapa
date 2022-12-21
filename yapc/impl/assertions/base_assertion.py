@@ -1,40 +1,27 @@
-from typing import Type, Any
-from yapc.flags import BaseFlags
-from abc import ABC, abstractmethod
+from typing import Type
+from abc import ABC, abstractmethod, abstractproperty
 
 
 class BaseAssertion(ABC):
-    def __init__(self, actual: Any, flag_class: Type[BaseFlags]):
-        self._actual = actual
-        self.flag_class = flag_class
-        self.flags = flag_class()
-
-    @property
+    @abstractproperty
     def to(self):
-        return self
+        ...
 
-    @property
+    @abstractproperty
     def be(self):
-        return self
+        ...
 
-    @property
+    @abstractproperty
     def have(self):
-        self.flags.have = True
-        return self
+        ...
 
-    @property
-    def actual(self):
-        return self._actual
-
-    @property
+    @abstractproperty
     def _not(self):
-        self.flags.tobe = False
-        return self
+        ...
 
-    @property
+    @abstractproperty
     def _and(self):
-        self.flags = self.flag_class()
-        return self
+        ...
 
     @abstractmethod
     def ok(self):
@@ -44,21 +31,26 @@ class BaseAssertion(ABC):
     def eql(self):
         ...
 
+    @abstractmethod
+    def equal(self):
+        ...
+
+    @abstractmethod
     def a(self, dest_class: Type):
-        assert isinstance(self.actual, dest_class) == self.flags.tobe
-        return self
+        ...
 
+    @abstractmethod
     def an(self, dest_class: Type):
-        return self.a(dest_class=dest_class)
+        ...
 
+    @abstractmethod
     def true(self):
-        assert self.actual is self.actual.tobe
-        return self
+        ...
 
+    @abstractmethod
     def false(self):
-        self.flags.tobe = False
-        return self.true
+        ...
 
+    @abstractmethod
     def empty(self):
-        assert (len(self.actual) == 0) == self.flags.tobe
-        return self
+        ...

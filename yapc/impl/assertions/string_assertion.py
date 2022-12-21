@@ -1,10 +1,11 @@
-from typing import Type, Any
+from typing import Type
 
-from .base_assertion import BaseAssertion
+from .generic_assertion import GenericAssertion
+
 from yapc.flags import StrFlags
 
 
-class StrAssertion(BaseAssertion):
+class StrAssertion(GenericAssertion):
     def __init__(self, actual: str, flag_class: Type[StrFlags]):
         return super().__init__(actual, flag_class)
 
@@ -20,11 +21,3 @@ class StrAssertion(BaseAssertion):
 
     def str(self, dest: str) -> "StrAssertion":
         return self(dest=dest)
-
-    def ok(self) -> "StrAssertion":
-        assert self.actual if self.flags.tobe else not self.actual
-        return self
-
-    def eql(self, dest: Any) -> "StrAssertion":
-        assert (self.actual == dest) == self.flags.tobe
-        return self

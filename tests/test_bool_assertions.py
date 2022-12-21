@@ -16,3 +16,7 @@ def test_bool_ok():
     expect(False).to.eql(False)
     expect(True)._not.to.eql(False)
     expect(False)._not.to.eql(True)
+    expect(True).to.equal(True)
+    expect(False).to.equal(False)
+    expect(True)._not.to.equal(False)
+    expect(False)._not.to.equal(True)
