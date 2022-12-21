@@ -1,10 +1,15 @@
 from typing import Union, overload
-from yapc.impl.assertions import StrAssertion, DictAssertion
-from yapc.flags import StrFlags
+from yapc.impl.assertions import StrAssertion, DictAssertion, BoolAssertion
+from yapc.flags import StrFlags, BoolFlags
 
 
 @overload
 def expect(actual: str) -> StrAssertion:
+    ...
+
+
+@overload
+def expect(actual: bool) -> BoolAssertion:
     ...
 
 
@@ -14,10 +19,12 @@ def expect(actual: dict) -> DictAssertion:
 
 
 def expect(
-    actual: Union[str, dict],
-) -> Union[StrAssertion, DictAssertion]:
+    actual: Union[str, dict, bool],
+) -> Union[StrAssertion, DictAssertion, BoolAssertion]:
     if isinstance(actual, str):
         return StrAssertion(actual=actual, flag_class=StrFlags)
+    if isinstance(actual, bool):
+        return BoolAssertion(actual=actual, flag_class=BoolFlags)
     raise NotImplementedError
 
 
