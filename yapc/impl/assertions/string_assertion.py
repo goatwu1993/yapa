@@ -20,3 +20,7 @@ class StrAssertion(BaseAssertion):
 
     def str(self, dest: str) -> "StrAssertion":
         return self(dest=dest)
+
+    def ok(self) -> "StrAssertion":
+        assert self.actual if self.flags.tobe else not self.actual
+        return self

@@ -21,3 +21,8 @@ def test_assertions_str_and():
     expect("foo")._not.to.have.string("bar")
     expect("foobar").to.have.str("bar")
     expect("foo")._not.to.have.str("bar")
+
+
+def test_assertions_str_ok():
+    expect("foobar").to.be.ok
+    expect("")._not.to.be.ok

@@ -1,8 +1,9 @@
 from typing import Type, Any
 from yapc.flags import BaseFlags
+from abc import ABC, abstractmethod
 
 
-class BaseAssertion:
+class BaseAssertion(ABC):
     def __init__(self, actual: Any, flag_class: Type[BaseFlags]):
         self._actual = actual
         self.flag_class = flag_class
@@ -35,6 +36,11 @@ class BaseAssertion:
         self.flags = self.flag_class()
         return self
 
+    @abstractmethod
+    def ok(self):
+        ...
+
+    @abstractmethod
     def __call__(self, *args, **kwargs):
         ...
 
