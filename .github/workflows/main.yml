@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install CI packages
-        run: pip install -r ci/requirements.txt
+        run: pip install pre-commit
       - name: Lint all files
         run: pre-commit run --all-files
   test-coverage:
