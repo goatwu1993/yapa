@@ -12,3 +12,7 @@ class GenericExpectation:
     def to_be(self, target: Any):
         self.impl_class.impl_to_be_equal(self.actual, target=target)
         return self
+
+    def to_contain(self, target: Any):
+        self.impl_class.impl_to_contain(self.actual, target=target)
+        return self

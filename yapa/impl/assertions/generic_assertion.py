@@ -5,8 +5,8 @@ from .base_assertion_implement_interface import BaseAssertionImplementInterface
 
 class GenericAssertionImplement(BaseAssertionImplementInterface):
     @staticmethod
-    def impl_to_have(source: Any, target: Any) -> None:
-        assert source in target
+    def impl_to_contain(source: Any, target: Any) -> None:
+        assert target in source
 
     @staticmethod
     def impl_to_be_truthy(source: Any) -> None:
