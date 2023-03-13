@@ -1,9 +1,13 @@
-from typing import Type, Any
+from typing import Any, Type
+
+from typing_extensions import Self
+
 from yapa.flags import BaseFlags
-from .base_assertion import BaseAssertion
+
+from .base_assertion import BaseAssertionInterface
 
 
-class GenericAssertion(BaseAssertion):
+class GenericAssertion(BaseAssertionInterface):
     def __init__(self, actual: Any, flag_class: Type[BaseFlags]):
         self._actual = actual
         self.flag_class = flag_class
@@ -40,7 +44,7 @@ class GenericAssertion(BaseAssertion):
         assert bool(self.actual) is self.flags.tobe
         return self
 
-    def eql(self, dest: Any):
+    def eql(self, dest: Any) -> Self:
         assert (self.actual == dest) == self.flags.tobe
         return self
 

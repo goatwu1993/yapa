@@ -1,56 +1,42 @@
-from typing import Type
 from abc import ABC, abstractmethod, abstractproperty
+from typing import Any, Type
+
+from typing_extensions import Self
 
 
-class BaseAssertion(ABC):
+class BaseAssertionInterface(ABC):
     @abstractproperty
-    def to(self):
-        ...
-
-    @abstractproperty
-    def be(self):
-        ...
-
-    @abstractproperty
-    def have(self):
+    def to(self) -> Self:
         ...
 
     @abstractproperty
-    def _not(self):
+    def be(self) -> Self:
         ...
 
     @abstractproperty
-    def _and(self):
+    def have(self) -> Self:
+        ...
+
+    @abstractproperty
+    def _not(self) -> Self:
         ...
 
     @abstractmethod
-    def ok(self):
+    def ok(self) -> Self:
         ...
 
     @abstractmethod
-    def eql(self):
+    def eql(self, dest: Any):
         ...
 
     @abstractmethod
-    def equal(self):
+    def equal(self, dest: Any) -> Self:
         ...
 
     @abstractmethod
-    def a(self, dest_class: Type):
+    def a(self, dest_class: Type) -> Self:
         ...
 
     @abstractmethod
-    def an(self, dest_class: Type):
-        ...
-
-    @abstractmethod
-    def true(self):
-        ...
-
-    @abstractmethod
-    def false(self):
-        ...
-
-    @abstractmethod
-    def empty(self):
+    def an(self, dest_class: Type) -> Self:
         ...

@@ -1,5 +1,5 @@
-from .base_assertion import BaseAssertion
+from .base_assertion import BaseAssertionInterface
 
 
-class DictAssertion(BaseAssertion):
+class DictAssertion(BaseAssertionInterface):
     pass

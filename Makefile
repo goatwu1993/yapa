@@ -10,3 +10,7 @@ clean: # clean
 	rm -r .mypy_cache || true
 	rm .coverage 2>/dev/null || true
 	find . -d -name '__pycache__' | xargs rm -r
+
+.PHONY: typecheck
+typecheck: # typecheck
+	mypy .
