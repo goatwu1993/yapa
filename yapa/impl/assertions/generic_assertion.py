@@ -1,5 +1,5 @@
 from typing import Type, Any
-from yapc.flags import BaseFlags
+from yapa.flags import BaseFlags
 from .base_assertion import BaseAssertion
 
 

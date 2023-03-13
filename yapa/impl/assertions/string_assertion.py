@@ -2,7 +2,7 @@ from typing import Type
 
 from .generic_assertion import GenericAssertion
 
-from yapc.flags import StrFlags
+from yapa.flags import StrFlags
 
 
 class StrAssertion(GenericAssertion):

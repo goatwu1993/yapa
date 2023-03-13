@@ -1,4 +1,4 @@
-from yapc import expect
+from yapa import expect
 
 
 def test_assertions_str():

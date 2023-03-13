@@ -1,6 +1,6 @@
 from typing import Union, overload
-from yapc.impl.assertions import StrAssertion, DictAssertion, BoolAssertion
-from yapc.flags import StrFlags, BoolFlags
+from yapa.impl.assertions import StrAssertion, DictAssertion, BoolAssertion
+from yapa.flags import StrFlags, BoolFlags
 
 
 @overload
