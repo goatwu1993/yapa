@@ -20,3 +20,7 @@ class GenericExpectation:
     def to_be_truthy(self):
         self.impl_class.impl_to_be_truthy(self.actual)
         return self
+
+    def to_be_identical_to(self, target: Any):
+        self.impl_class.impl_to_be_identical(self.actual, target)
+        return self
