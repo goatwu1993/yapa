@@ -6,6 +6,7 @@ help: ## Show help messages
 
 .PHONY: clean
 clean: # clean
-	rm -rf .pytest_cache
-	rm -rf .mypy_cache
+	rm -r .pytest_cache || true
+	rm -r .mypy_cache || true
 	rm .coverage 2>/dev/null || true
+	find . -d -name '__pycache__' | xargs rm -r
