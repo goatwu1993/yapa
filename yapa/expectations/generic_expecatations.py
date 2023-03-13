@@ -16,3 +16,7 @@ class GenericExpectation:
     def to_contain(self, target: Any):
         self.impl_class.impl_to_contain(self.actual, target=target)
         return self
+
+    def to_be_truthy(self):
+        self.impl_class.impl_to_be_truthy(self.actual)
+        return self
