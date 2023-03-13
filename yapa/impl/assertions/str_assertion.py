@@ -1,5 +1,5 @@
 from .generic_assertion import GenericAssertionImplement
 
 
-class BoolAssertion(GenericAssertionImplement):
-    ...
+class StrAssertion(GenericAssertionImplement):
+    pass

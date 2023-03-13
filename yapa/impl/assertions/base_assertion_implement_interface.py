@@ -4,21 +4,9 @@ from typing import Any, Type
 from typing_extensions import Self
 
 
-class BaseAssertionInterface(ABC):
-    @abstractproperty
-    def to(self) -> Self:
-        ...
-
-    @abstractproperty
-    def be(self) -> Self:
-        ...
-
+class BaseAssertionImplementInterface(ABC):
     @abstractproperty
     def have(self) -> Self:
-        ...
-
-    @abstractproperty
-    def _not(self) -> Self:
         ...
 
     @abstractmethod

@@ -1,30 +1,9 @@
-from typing import Union, overload
-from yapa.impl.assertions import StrAssertion, DictAssertion, BoolAssertion
-from yapa.flags import StrFlags, BoolFlags
+from yapa.expectations import StrExpectation
 
 
-@overload
-def expect(actual: str) -> StrAssertion:
-    ...
-
-
-@overload
-def expect(actual: bool) -> BoolAssertion:
-    ...
-
-
-@overload
-def expect(actual: dict) -> DictAssertion:
-    ...
-
-
-def expect(
-    actual: Union[str, dict, bool],
-) -> Union[StrAssertion, DictAssertion, BoolAssertion]:
+def expect(actual: str) -> StrExpectation:
     if isinstance(actual, str):
-        return StrAssertion(actual=actual, flag_class=StrFlags)
-    if isinstance(actual, bool):
-        return BoolAssertion(actual=actual, flag_class=BoolFlags)
+        return StrExpectation(actual=actual)
     raise NotImplementedError
 
 

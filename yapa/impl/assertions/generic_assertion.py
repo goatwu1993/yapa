@@ -1,72 +1,25 @@
 from typing import Any, Type
 
-from typing_extensions import Self
-
-from yapa.flags import BaseFlags
-
-from .base_assertion_interface import BaseAssertionInterface
+from .base_assertion_implement_interface import BaseAssertionImplementInterface
 
 
-class GenericAssertion(BaseAssertionInterface):
-    def __init__(self, actual: Any, flag_class: Type[BaseFlags]):
-        self._actual = actual
-        self.flag_class = flag_class
-        self.flags = flag_class()
+class GenericAssertionImplement(BaseAssertionImplementInterface):
+    @staticmethod
+    def impl_to_have(source: Any, target: Any) -> None:
+        assert source in target
 
-    @property
-    def to(self):
-        return self
+    @staticmethod
+    def impl_to_be_truthy(source: Any) -> None:
+        assert bool(source)
 
-    @property
-    def be(self):
-        return self
+    @staticmethod
+    def impl_to_be_identical(source: Any, target: Any) -> None:
+        assert id(source) == id(target)
 
-    @property
-    def have(self):
-        self.flags.have = True
-        return self
+    @staticmethod
+    def impl_to_be_equal(source: Any, target: Any) -> None:
+        assert source == target
 
-    @property
-    def actual(self):
-        return self._actual
-
-    @property
-    def _not(self):
-        self.flags.tobe = False
-        return self
-
-    @property
-    def _and(self):
-        self.flags = self.flag_class()
-        return self
-
-    def ok(self):
-        assert bool(self.actual) is self.flags.tobe
-        return self
-
-    def eql(self, dest: Any) -> Self:
-        assert (self.actual == dest) == self.flags.tobe
-        return self
-
-    def equal(self, dest: Any):
-        assert (id(self.actual) == id(dest)) == self.flags.tobe
-        return self
-
-    def a(self, dest_class: Type):
-        assert isinstance(self.actual, dest_class) == self.flags.tobe
-        return self
-
-    def an(self, dest_class: Type):
-        return self.a(dest_class=dest_class)
-
-    def true(self):
-        assert self.actual is self.actual.tobe
-        return self
-
-    def false(self):
-        self.flags.tobe = False
-        return self.true
-
-    def empty(self):
-        assert (len(self.actual) == 0) == self.flags.tobe
-        return self
+    @staticmethod
+    def impl_to_be_class(source: Any, target: Type) -> None:
+        assert isinstance(source, target)

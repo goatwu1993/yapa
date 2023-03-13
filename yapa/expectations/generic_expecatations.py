@@ -1,0 +1,14 @@
+from typing import Any
+
+from yapa.impl.assertions.generic_assertion import GenericAssertionImplement
+
+
+class GenericExpectation:
+    impl_class = GenericAssertionImplement
+
+    def __init__(self, actual: Any):
+        self.actual = actual
+
+    def to_be(self, target: Any):
+        self.impl_class.impl_to_be_equal(self.actual, target=target)
+        return self
