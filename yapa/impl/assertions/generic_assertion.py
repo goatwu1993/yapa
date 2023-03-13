@@ -4,7 +4,7 @@ from typing_extensions import Self
 
 from yapa.flags import BaseFlags
 
-from .base_assertion import BaseAssertionInterface
+from .base_assertion_interface import BaseAssertionInterface
 
 
 class GenericAssertion(BaseAssertionInterface):

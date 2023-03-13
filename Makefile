@@ -14,3 +14,7 @@ clean: # clean
 .PHONY: typecheck
 typecheck: # typecheck
 	mypy .
+
+.PHONY: test
+test: # test
+	poetry run pytest --cov
