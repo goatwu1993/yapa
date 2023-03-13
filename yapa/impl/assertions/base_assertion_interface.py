@@ -26,7 +26,7 @@ class BaseAssertionInterface(ABC):
         ...
 
     @abstractmethod
-    def eql(self, dest: Any):
+    def eql(self, dest: Any) -> Self:
         ...
 
     @abstractmethod
