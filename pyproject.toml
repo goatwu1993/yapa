@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "yapc"
+name = "yapa"
 version = "0.1.0"
-description = "yet another python chai assertion library"
+description = "yet another python assertion library"
 authors = ["Peter Wu <peteeelol@gmail.com>"]
 readme = "README.md"
 

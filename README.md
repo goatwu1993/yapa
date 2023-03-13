@@ -1,2 +1,3 @@
-# yapc
-yet another python chai assertion
+# yapa
+
+yet another python assertion
