@@ -37,6 +37,7 @@ jobs:
         uses: actions/checkout@v2
       - name: test-coverage
         run: |
+          pip install poetry
           poetry install
           poetry run pytest --cov
       - name: upload-artifact
