@@ -15,6 +15,7 @@ env:
 
 jobs:
   lint:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -30,6 +31,7 @@ jobs:
       pull-requests: write
       checks: write
     if: ${{ github.event_name != 'pull_request' }}
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
