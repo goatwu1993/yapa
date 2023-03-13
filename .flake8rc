@@ -1,0 +1,3 @@
+[flake8]
+max-line-length = 100
+extend-ignore=PIE786,PIE797,PIE781,PIE803,PIE801
