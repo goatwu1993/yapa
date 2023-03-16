@@ -5,6 +5,7 @@ from ..mixins.generic_mixins import (
     IsInstanceMixin,
     TruthyMixin,
 )
+from ..mixins.length_mixins import LengthMixin
 from .base_assertion_implement_interface import BaseAssertionImplementInterface
 
 
@@ -15,5 +16,6 @@ class GenericAssertionImplement(
     IdenticalMixin,
     TruthyMixin,
     IsInstanceMixin,
+    LengthMixin,
 ):
     pass

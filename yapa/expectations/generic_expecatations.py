@@ -24,3 +24,7 @@ class GenericExpectation:
     def to_be_identical_to(self, target: Any):
         self.impl_class.impl_to_be_identical(self.actual, target)
         return self
+
+    def to_be_length_of(self, target: int):
+        self.impl_class.impl_to_be_length_of(self.actual, target)
+        return self
