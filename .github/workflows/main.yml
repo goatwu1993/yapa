@@ -39,7 +39,7 @@ jobs:
         run: |
           pip install poetry
           poetry install
-          poetry run pytest --cov
+          poetry run pytest
       - name: upload-artifact
         if: ${{ github.event_name == 'push' }}
         uses: actions/upload-artifact@v3
