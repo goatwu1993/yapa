@@ -9,6 +9,10 @@ class StrExpectation(GenericExpectation):
     def __init__(self, actual):
         self.actual = actual
 
-    def to_be_lowered(self):
-        self.impl_class.impl_to_be_lowered(self.actual)
+    def to_be_lower_case(self):
+        self.impl_class.impl_to_be_lower_case(self.actual)
+        return self
+
+    def to_be_upper_case(self):
+        self.impl_class.impl_to_be_upper_case(self.actual)
         return self
