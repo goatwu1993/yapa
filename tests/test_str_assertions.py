@@ -7,3 +7,4 @@ def test_assertions_str_positive():
     expect("foobar").to_contain("bar")
     expect("foobar").to_be_truthy()
     expect("foobar").to_be_identical_to("foobar")
+    expect("foobar").to_be_lowered()
